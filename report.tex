@@ -1,0 +1,174 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{fontspec,xltxtra,xunicode}      %可使用系统自带字体
+%\usepackage{}
+
+\usepackage{setspace}    %使用行间距宏包
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{abstract}
+\usepackage[slantfont, boldfont]{xeCJK}
+\usepackage[colorlinks,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+\usepackage{titlesec}
+\usepackage{latexsym}
+\usepackage{amsbsy}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tocvsec2}
+\usepackage{longtable}
+\usepackage{booktabs}                % 用于表格中加下划线
+\usepackage{fancyhdr}                % 页眉页脚
+\usepackage{makeidx}                 % 建立索引
+\usepackage{bbding}                  % 一些特殊符号
+\usepackage{cite}                    % 支持引用
+\usepackage{multirow}                %使用多栏宏包
+\setlength{\skip\footins}{0.5cm}     % 脚注与正文的距离
+
+\usepackage{listings}
+
+
+
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}  %设置上标引用
+\geometry{top=1.2in,bottom=1.2in,left=1.2in,right=1in}  %设置页边距
+\defaultfontfeatures{Mapping=tex-text}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt   %设置文章内自动换行
+%\setlength{\parindent}{2em}  %设定首行缩进
+
+%中文字体设置
+\setCJKmainfont[BoldFont=Adobe Heiti Std,ItalicFont=Adobe Kaiti Std]{Adobe Song Std}
+\setCJKsansfont{Adobe Heiti Std}
+\setCJKmonofont{Adobe Fangsong Std}
+ 
+\setCJKfamilyfont{zhsong}{Adobe Song Std}
+\setCJKfamilyfont{zhhei}{Adobe Heiti Std}
+\setCJKfamilyfont{zhfs}{Adobe Fangsong Std}
+\setCJKfamilyfont{zhkai}{Adobe Kaiti Std}
+\setCJKfamilyfont{zhli}{LiSu}
+\setCJKfamilyfont{zhyou}{YouYuan}
+ 
+\newcommand*{\songti}{\CJKfamily{zhsong}} % 宋体
+\newcommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
+\newcommand*{\fangsong}{\CJKfamily{zhfs}} % 仿宋
+\newcommand*{\lishu}{\CJKfamily{zhli}}    % 隶书
+\newcommand*{\youyuan}{\CJKfamily{zhyou}} % 幼圆
+
+%英文字体设置
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Consolas}
+
+%设置字体大小
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}      %初号字体
+\newcommand{\xiaochu}{\fontsize{36pt}{\baselineskip}\selectfont}  %小初号字体
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}       %一号字体
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}       %二号字体
+\newcommand{\xiaoer}{\fontsize{18pt}{\baselineskip}\selectfont}   %小二号字体
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}   %三号字体
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}       %四号字体
+\newcommand{\xiaosi}{\fontsize{12pt}{\baselineskip}\selectfont}   %小四号字体
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}     %五号字体
+\newcommand{\xiaowu}{\fontsize{9pt}{\baselineskip}\selectfont}    %小五号字体
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}   %六号字体
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}     %七号字体
+
+%更新目录指令
+\renewcommand{\contentsname}{ \centerline {\heiti \sanhao{目\quad 录}}}
+\renewcommand{\refname}{\centerline {\heiti \xiaosi{参考文献}}}
+
+
+\lstset{ %  
+extendedchars=false,            % Shutdown no-ASCII compatible  
+language=Matlab,                % choose the language of the code  
+basicstyle=\footnotesize\tt,    % the size of the fonts that are used for the code  
+tabsize=3,                            % sets default tabsize to 3 spaces  
+numbers=left,                   % where to put the line-numbers  
+numberstyle=\tiny,              % the size of the fonts that are used for the line-numbers  
+stepnumber=1,                   % the step between two line-numbers. If it's 1 each line  
+                                % will be numbered  
+numbersep=5pt,                  % how far the line-numbers are from the code   %  
+keywordstyle=\color[rgb]{0,0,1},                % keywords  
+commentstyle=\color[rgb]{0.133,0.545,0.133},    % comments  
+stringstyle=\color[rgb]{0.627,0.126,0.941},      % strings  
+backgroundcolor=\color{white}, % choose the background color. You must add \usepackage{color}  
+showspaces=false,               % show spaces adding particular underscores  
+showstringspaces=false,         % underline spaces within strings  
+showtabs=false,                 % show tabs within strings adding particular underscores  
+frame=single,                 % adds a frame around the code  
+captionpos=b,                   % sets the caption-position to bottom  
+breaklines=true,                % sets automatic line breaking  
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace  
+title=\lstname,                 % show the filename of files included with \lstinputlisting;  
+                                % also try caption instead of title  
+mathescape=true,escapechar=?    % escape to latex with ?..?  
+escapeinside={\%*}{*)},         % if you want to add a comment within your code  
+%columns=fixed,                  % nice spacing  
+%morestring=[m]',                % strings  
+%morekeywords={%,...},%          % if you want to add more keywords to the set  
+%    break,case,catch,continue,elseif,else,end,for,function,global,%  
+%    if,otherwise,persistent,return,switch,try,while,...},%  
+}  
+
+
+
+
+\title{Homework 3 Report}
+\author{Peide Li}
+
+\begin{document}
+\maketitle
+
+In this experiment, I used Matlab to solve regression problems with $l_{2}$-norm regularization. The original problem can be described in this way. Given training data set, we need to find a linear model which can minimize the error of prediction. In order to avoid over-fitting problems, we add regularization term to penalize the error if the norm of parameters is very large. Assume $X$ is the designed matrix, $y$ is the target vector in our training set, $\lambda$ is the regularization term. We need to solve the optimization problem:
+\begin{center}
+$E(w) = \underset{w}{min} \frac{1}{2}\left \| Xw - y \right \|^{2}_{2} + \frac{\lambda}{2}\left \| w \right \|^{2}_{2}$
+\end{center}
+By setting the derivative $\frac{\partial E(w)}{\partial w} = 0$, we can get the least square estimate of the parameter:
+\begin{center}
+ $w = \left ( X^{T}X + \lambda I \right )^{-1} X^{T}y$
+\end{center}
+Then I use this formula to code the ridge regression solver in Matlab. The function is shown below. It needs three inputs: designed matrix, target vector, and regularization parameter. It will give out the $w$ which can minimize the loss function $E(w)$.
+
+\begin{lstlisting}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ridge Regression Function
+%%% Input : X(predictors), Y(response), lambda(regularizaiotn parameter)
+%%% Output: w (renewed parameters)
+
+function [w] = RidgeRegress(X, Y, lambda)
+[a, b] = size(X' * X);
+
+%calculate the invers part
+den = X' * X + eye(a,b) * lambda;
+
+if det(den) == 0  %Prevent that the projection matrix is not inversible 
+    disp('The matrix is not inversible');
+    w = 0;
+else
+    w = den^(-1) * X' * Y;
+end
+
+end
+\end{lstlisting}  
+
+Next, I use the ridge regression solver to get the least square estimate of the parameters on the Diabetes dataset. The regularization parameter vary from $1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1, 10$. And I use mean squared error to measure the error. The Figure 1 shows the MSE against the value of the log $\lambda$.
+\begin{center}
+\begin{figure}
+\includegraphics[width = 16cm, height = 10cm]{"error.jpg"}
+\caption{MSE against $log \lambda$}
+\end{figure}
+\end{center}
+Finally, I performed 5-fold cross validation on the training data to find the best $\lambda$ for the model. I divided the training set almost evenly into five groups, NO.1-50, 51-100, 101-150, 151-200, 201-242. So there are five different combinations of training set and cross validation set. For each value of $\lambda$, I use these sets to train the models and computed their cross validation errors(just the same as the MSE). I found the $\lambda = 10$ has the minimum cross validation error $1.4044 \times 10 ^{5}$. So I set $\lambda = 10$ and use the whole training set to train the model again. The best $\lambda$ obtained from cross validation procedure is also pointed out in the Figure 1.
+
+\quad \\
+
+
+The PDF report and the original Matlab code can be found at my github site:   
+\url{https://github.com/Kira233767/HomeWork-3.git}
+
+
+\end{document}
